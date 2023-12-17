@@ -1,0 +1,66 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://schemas.fi.se/marknad/insyn/20230331",
+    "type": "object",
+    "required": [
+        "firstname",
+        "lastname"
+    ],
+    "additionalProperties": true,
+    "properties": {
+        "aboutme": {
+            "type": "string",
+            "title": "About me",
+            "options": {
+                "multi": true
+            }
+        },
+        "firstname": {
+            "type": "string"
+        },
+        "lastname": {
+            "type": "string"
+        },
+        "gender": {
+            "enum": [
+                "Male",
+                "Female"
+            ],
+            "type": "string",
+            "fieldType": "selectlist",
+            "displayType": "select",
+            "isSearchable": true,
+            "propertyOrder": 7
+        },
+        "email": {
+            "type": "string",
+            "format": "email"
+        },
+        "french": {
+            "type": "boolean"
+        },
+        "age": {
+            "type": "number",
+            "minimum": 18,
+            "maximum": 100,
+            "multipleOf": 1
+        },
+        "birthday": {
+            "type": "string",
+            "format": "date",
+            "minimum": 18,
+            "maximum": 100,
+            "multipleOf": 1
+        },
+        "drugs": {
+            "enum": [
+                "Alcohol suspected",
+                "Drugs suspected"
+            ],
+            "type": "string",
+            "fieldType": "selectlist",
+            "displayType": "select",
+            "isSearchable": false
+        }
+    }
+}
