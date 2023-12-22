@@ -1,18 +1,19 @@
-<mat-card fxLayout="column" fxFlex="60" fxFlexOffset="20">
+<mat-card id="regform" fxLayout="column" fxFlex="60" fxFlexOffset="20" fxLayoutAlign="center center">
+    <app-translation-selector></app-translation-selector>
     <div *ngIf="loading">
         <label>Loading...</label>
     </div>
 
     <div *ngIf="!loading">
         <div>
-            <h3>Register to Welcome</h3>
+            <h3>{{'welcome' | translate}}</h3>
         </div>
-        <jsonforms [(data)]="data" [schema]="schema" [uischema]="uischema" [readonly]=false [renderers]="renderers" [validationMode]="validationMode" [config]="defaultConfig" (errors)="onError($event)"></jsonforms>
-        <!-- pre style="color: red">Schema {{schema | json}}</pre>
+        <jsonforms [(data)]="data" [schema]="schema" [uischema]="uischema" [readonly]=false [renderers]="renderers" [validationMode]="validationMode" [config]="defaultConfig" (errors)="onError($event)" [i18n]="translator"></jsonforms>
+        <pre style="color: red">Schema {{schema | json}}</pre>
 
-      <pre style="color: red">Errors {{validationErrors | json}}</pre>
+        <!-- pre style="color: red">Errors {{validationErrors | json}}</pre -->
 
-      <pre style="color: red">UI Schema {{uischema | json}}</pre -->
+        <pre style="color: red">UI Schema {{uischema | json}}</pre>
     </div>
     <div fxLayout="row" fxLayoutAlign="end">
         <button mat-raised-button color="primary" (click)="register()" [disabled]="error">Register</button>

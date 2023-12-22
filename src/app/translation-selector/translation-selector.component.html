@@ -1,0 +1,11 @@
+<div fxLayout="column">
+    <label>{{'language' | translate}}</label>
+    <br>
+    <mat-form-field>
+        <mat-select [placeholder]="'select.lang'| translate " [(value)]="selected" (selectionChange)="selectionChanged($event)">
+            <mat-option *ngFor="let l of langs" [value]="l.key">
+                {{ l.value }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>

@@ -1,0 +1,14 @@
+{
+    "welcome": "Welcome!",
+    "language": "Language",
+    "age.label": "Age",
+    "drugs.label": "Drugs",
+    "email.label": "Email",
+    "french.label": "French",
+    "gender.label": "Gender",
+    "aboutme.label": "About me",
+    "birthday.label": "Birthday",
+    "lastname.label": "Lastname",
+    "firstname.label": "Firstname",
+    "select.lang": "Select language"
+}

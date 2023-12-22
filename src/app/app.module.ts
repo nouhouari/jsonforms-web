@@ -8,15 +8,24 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { JsonFormsModule } from '@jsonforms/angular';
 import { JsonFormsAngularMaterialModule } from '@jsonforms/angular-material';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { RegistrationComponent } from './registration/registration.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslationSelectorComponent } from './translation-selector/translation-selector.component';
+
+// AoT requires an exported function for factories
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 @NgModule({
   declarations: [
     AppComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    TranslationSelectorComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +38,16 @@ import { MatButtonModule } from '@angular/material/button';
     HttpClientModule,
 
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    // Add translation
+    TranslateModule.forRoot({
+      defaultLanguage: localStorage.getItem('LANG')??'en',
+      loader: {
+        provide: TranslateLoader,
+          useFactory: createTranslateLoader,
+          deps: [HttpClient]
+      }
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

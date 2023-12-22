@@ -1,0 +1,15 @@
+{
+    "welcome": "أهلًا وسهلًا",
+    "language": "اللغة",
+    "age.label": "العمر",
+    "drugs.label": "المخدرات",
+    "email.label": "البريد الإلكتروني",
+    "french.label": "الفرنسية",
+    "gender.label": "الجنس",
+    "aboutme.label": "عني",
+    "birthday.label": "عيد ميلاد",
+    "lastname.label": "اسم العائلة",
+    "firstname.label": "الاسم الأول",
+    "select.lang": "اختر اللغة",
+    "gender.Male": "ijoijo"
+}
